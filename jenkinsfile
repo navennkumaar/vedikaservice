@@ -1,13 +1,11 @@
-node
-{
- stage('get code from git')
+node{
+   stage ('Get Code From Git')
 {
  git 'https://github.com/navennkumaar/vedikaservice.git'
 }
-Stage('gradle package')
-{
- def gradleHome=tool name.'gradle',type:'gradle'
- def gradleCMD="${gradleHome}/bin/gradle"
- sh "{gradleCMD}clean build"
- }
+stage('gradle Package'){
+     def gradleHome = tool name: 'gradle', type: 'gradle'
+     def gradleCMD = "${gradleHome}/bin/gradle"
+     sh "${gradleCMD} clean build"
+   } 
 }
